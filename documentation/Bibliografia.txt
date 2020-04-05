@@ -1,0 +1,9 @@
+https://wiki.beyondlogic.org/index.php?title=Understanding_RaspberryPi_Boot_Process
+
+https://gist.github.com/Liryna/10710751
+
+here: https://github.com/s-matyukevich/raspberry-pi-os/blob/master/docs/lesson02/rpi-os.md
+
+https://books.google.es/books?id=muCcBAAAQBAJ&pg=PA531-IA3&lpg=PA531-IA3&dq=driver+usb+keyboard+for+broadcom+2835&source=bl&ots=tto1yP24Ga&sig=ACfU3U0oHQ5zF6K653sK6Lxfx7lPvNow-g&hl=ca&sa=X&ved=2ahUKEwjX87uFk7HoAhVO6RoKHdhoCHAQ6AEwAXoECAkQAQ#v=onepage&q=driver%20usb%20keyboard%20for%20broadcom%202835&f=false
+
+https://wiki.osdev.org/USB
