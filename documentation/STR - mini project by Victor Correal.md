@@ -36,10 +36,22 @@ https://github.com/bztsrc/raspi3-tutorial
 
 https://github.com/s-matyukevich/raspberry-pi-os
 
-## ARMv7 architecture
+## ARMv8 architecture
+A few architecture features:
+* Have 4 exception levels(the least one is the 0) the ELx contains the current exception level
+* General purpose registers (X0-X30)
+* Store/Load model for data memory
 
-##
+### Entering the system ARMv8 arch
+The 'trap' for enter the OS (and change the EL) is called `svc`. The process is similar as others OS:
+1. Current PC saved in ELR_ELn (Exception link register)
+2. Current state saved in SPSR_ELn (Saved Program Status Register) and the general porpuse registers (stack)
+3. Exception handler
+4. Return from exception
 
-##
+## Processor Start up
+* When boot, the exception level should be 3.
+
+## UART Serial communication
 
 ##
