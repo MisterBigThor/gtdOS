@@ -37,10 +37,12 @@ char* uart_read_string(void){
 		}
 		else {
 			buff[n++] = '\0';
+			uart_send_string("\r\n");
 			return buff;
 		}
 	}
 	buff[n++] = '\0';
+	uart_send_string("\r\n");
 	return buff;
 }
 
