@@ -14,13 +14,16 @@ VICTOR CORREAL RAMOS
 #define FUNCT0  4
 
 /*
+Defines the functionality for a GPIO pin
 */
-void setfunctionPin(int pin, const int F);
+void setfunctionGPIO(int pin, const int F);
 
 /*
+If the pin functionality is OUTPUT, a '1' logic is set
 */
 void setPin(int pin);
 
 /*
+If the pin functionality is OUTPUT, a '0' logic is set
 */
 void clrPin(int pin);
