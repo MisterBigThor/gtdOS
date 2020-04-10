@@ -45,10 +45,9 @@ char* uart_read_string(void){
 	return buff;
 }
 
-void uart_init ( void )
-{
+void uart_init (void){
 	unsigned int selector;
-
+	
 	selector = get32(GPFSEL1);
 	selector &= ~(7<<12);                   // clean gpio14
 	selector |= 4<<12;                      // set alt0 for gpio14
@@ -69,4 +68,8 @@ void uart_init ( void )
 	put32(UARTLCR_LCRH,0x60);				//Enable 8 bit mode
 
 	put32(UART_CR,0x301);					// enable UART, RX and TX
+}
+
+void putc(void* p, char c){
+	uart_send(c);
 }
