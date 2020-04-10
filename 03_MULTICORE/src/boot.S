@@ -8,6 +8,10 @@ _start:
 	and	x0, x0,#0xFF
 	cbz	x0, bss_init
 
+	mov x0, #100
+	bl delay
+	b master
+	
 bss_init:
 	adr x0, bss_begin
 	adr x1, bss_end
