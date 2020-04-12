@@ -5,6 +5,12 @@
 #include "interrupt.h"
 #include "timer.h"
 
+#include "string.h"
+#include "kernel.h"
+
+void parseOperation(char * c){
+	return;
+}
 
 void kernel_main(void){
 	uart_init();
@@ -17,11 +23,13 @@ void kernel_main(void){
 	timer_init();
 	enable_interrupt_controller();
 	enable_irq();
-	printf("[GreenTreeOS] Timer interrupts [UP]");	
-	uart_send_string_nl("KERNEL MAIN: UART ECHO");
+	printf("[GreenTreeOS] Timer interrupts [UP]\r\n");	
+	uart_send_string_nl("Entering the main loop\r\n");
 	while (1) {
-		char *c = uart_read_string();
+		string r = uart_read_string();
 		uart_send_string("Recived via UART: ");
-		uart_send_string_nl(c);
+		uart_send_string_nl(r);
+		parseOperation(r);
+		
 	}
 }

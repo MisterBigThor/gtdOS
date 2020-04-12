@@ -3,6 +3,7 @@
 #include "printf.h"
 #include "gpio.h"
 
+#include "string.h"
 extern int get_el();
 static unsigned int cur_proc = 0;
 
@@ -10,6 +11,7 @@ void kernel_main(void){
 
 	uart_init();
 	init_printf(0, putc); //move to the uart init function!
+
 	printf("[GreenTreeOS] Hello, world with prinft\r\n");
 	uart_send_string_nl("[GreenTreeOS] Hello, world!");
 	printf("[GreenTreeOS] Exception level: %d \r\n", get_el());
