@@ -5,17 +5,16 @@
 
 static unsigned int cur_proc = 0;
 
-void haltUntilWork(void (* fn_ptr)(void *), void* data){
-	
-	while(1){
-		if(fn_ptr != (void *)0) fn_ptr(data);
-	}
+void * haltUntilWork(void *(* fn_ptr)(void*), void* data){
+	while(1) if(fn_ptr != (void *)0) return fn_ptr(data);
 }
 
 void * workerP1 = (void *)0;
 void * dataP1 = (void *)0;
+
 void * workerP2 = (void *)0;
 void * dataP2 = (void *)0;
+
 void * workerP3 = (void *)0;
 void * dataP3 = (void *)0;
 
