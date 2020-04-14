@@ -1,11 +1,16 @@
-# gtdOS: basic OS for the Raspberry Pi 
+# GTDos: basic OS for the Raspberry Pi 
 
 In this project is I'm going to develop and test a real time OS, with this features:
 
+1. A basic UART communication 
+2. API to work with the GPIO pins
+3. Memory Managment
+4. Timers and interrupts managment
+5. Task managment and scheduling
+6. Support for multithreading (In a future).
 
 
 # Developing enviroment
-For develop an OS, certain tools needed:
 
 ### Compiling, emulating and debugging
 To compile is necessary a cross-compiler, because the architecture is diferent than my developing enviroment. For this project I'm going to use the aarch64-elf-gcc, but any other cross-compiler that can target the aarch64 will work.
@@ -19,7 +24,6 @@ Every directory contains a file to run the qemu.
 ````
 qemu-system-aarch64 -M raspi3 -kernel kernel-qemu.img -serial stdio
 ````
-
 For debugging I'm going to use the gdb (with multiarch support). For setup a debug session is important to compile with the -g flag (generates debugging info) and stop the QEMU before the execution of the first instruction (with -s -S options).
 ````
 qemu-system-aarch64 -s -S -M raspi3 -kernel kernel-qemu.img -serial stdio &
@@ -41,6 +45,8 @@ With this information, we can work with the assembler and C to boot a hello worl
 ## [UART and GPIO](/01_UART/uart.md)
 
 ## [Multicore](/02_MULTICORE/multicore.md)
+
+## [Entry the OS](/03_ENTRY/entry.md)
 
 For setting up the periphericals of the Raspi, I have read the documentation for the [BCM 2835](/documentation/BCM2835-ARM-Peripherals.pdf), the model of my raspberry.
 ...
