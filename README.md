@@ -9,6 +9,7 @@ In this project is I'm going to develop and test a real time OS, with this featu
 5. Task managment and scheduling
 6. Support for multithreading (In a future).
 
+[USB Drivers from rsta2](https://github.com/rsta2/uspi)
 
 # Developing enviroment
 
