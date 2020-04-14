@@ -38,7 +38,9 @@ In my particular case, I'm working with the Raspberry Pi 3 Model B (rev. 1.2). I
 With this information, we can work with the assembler and C to boot a hello world. In the following sections I go further with the diferent components to complete a OS.
 # Develop Stages
 
-## UART communication & GPIO
+## [UART and GPIO](/01_UART/uart.md)
+
+## [Multicore](/02_MULTICORE/multicore.md)
 
 For setting up the periphericals of the Raspi, I have read the documentation for the [BCM 2835](/documentation/BCM2835-ARM-Peripherals.pdf), the model of my raspberry.
 ...
