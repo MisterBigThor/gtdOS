@@ -18,7 +18,7 @@ void kernel_main(void){
 	printf("[GreenTreeOS] Hello, world with prinft\r\n");
 	printf("[GreenTreeOS] Exception level: %d Expect 1\r\n", get_el());
 	setfunctionGPIO(17, OUTPUT);
-	setPin(17);
+	
 	irq_vector_init();
 	timer_init();
 	enable_interrupt_controller();
@@ -29,7 +29,6 @@ void kernel_main(void){
 		string r = uart_read_string();
 		uart_send_string("Recived via UART: ");
 		uart_send_string_nl(r);
-		parseOperation(r);
-		
+		parseOperation(r);		
 	}
 }
