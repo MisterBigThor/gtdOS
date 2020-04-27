@@ -3,8 +3,11 @@
 
 #include "bool.h"
 #include "errno.h"
+#include "list.h"
 
 typedef unsigned int tid;
+
+enum state { ST_RUN, ST_READY, ST_BLOCKED };
 
 typedef struct cpu_context {
 	unsigned long x19;
@@ -20,20 +23,24 @@ typedef struct cpu_context {
 	unsigned long fp;
 	unsigned long sp;
 	unsigned long pc;
-};
+} cpu_context;
 
 typedef struct task_info{
     int startingQuantum;
     int timeElapsed;
-};
+	int transitions;
+}task_info;
 
 typedef struct task{
-    tid tid;                //Task IDentifier
-    cpu_context myContext;
+    tid tid;                	//Task IDentifier
+	cpu_context myContext;
     task_info myInfo;
     int quantumLeft;            //quantum left
     bool preemption_enable;
-};
+	enum state state;
+	list anchor;
+}task;
+
 
 /*
 Return the task identifier for a certain task.
