@@ -2,5 +2,6 @@
     "files.associations": {
         "entry.h": "c"
     },
-    "python.pythonPath": "C:\\Users\\victor\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe"
+    "python.pythonPath": "C:\\Users\\victor\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
+    "C_Cpp.errorSquiggles": "Disabled"
 }
