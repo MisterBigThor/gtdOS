@@ -2,6 +2,8 @@
 #include "printf.h"
 #include "peripherals/timer.h"
 #include "gpio.h"
+#include "sched.h"
+
 /*
 	For setting a timer interval:
 	The working frequency for the clock is 1MHz
@@ -24,13 +26,5 @@ void handle_timer_irq( void ) {
 	curVal += interval;
 	put32(TIMER_C1, curVal);
 	put32(TIMER_CS, TIMER_CS_M1);
-	if(viewClock) printf("Timer interrupt \r\n");
-	if(l == 0){
-		setPin(17);
-		l = 1;
-	}
-	else {
-		clrPin(17);
-		l = 0;
-	}
+	timer_tick();
 }

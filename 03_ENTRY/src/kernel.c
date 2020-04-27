@@ -8,12 +8,23 @@
 #include "string.h"
 #include "kernel.h"
 
-void parseOperation(char * c){
+int viewClock;
+
+void parseOperation(string c){
+	if(cmp(c, "clk")){
+		if(viewClock) viewClock = 0;
+		else viewClock = 1;
+		printf("debugging clocks interrupts\r\n");
+	}
+	else if(cmp(c, "gpio")){
+		printf("GPIO\r\n");
+	}
 	return;
 }
 
 void kernel_main(void){
 	uart_init();
+	viewClock = 0;
 	init_printf(0, putc);
 	printf("[GreenTreeOS] Hello, world with prinft\r\n");
 	printf("[GreenTreeOS] Exception level: %d Expect 1\r\n", get_el());
