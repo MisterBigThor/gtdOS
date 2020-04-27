@@ -2,7 +2,7 @@
 #define timer_h
 
 #include "peripherals/base.h"
-//page 172:
+//page 172: System Timer
 #define TIMER_CS        (PBASE+0x00003000)
 #define TIMER_CLO       (PBASE+0x00003004)
 #define TIMER_CHI       (PBASE+0x00003008)
@@ -15,5 +15,8 @@
 #define TIMER_CS_M1	(1 << 1)
 #define TIMER_CS_M2	(1 << 2)
 #define TIMER_CS_M3	(1 << 3)
+
+
+//page 196: Timer (ARM side)
 
 #endif

@@ -18,7 +18,7 @@ vectors:
 	ventry	sync_invalid_el0_64			// Synchronous 64-bit EL0
 	ventry	irq_invalid_el0_64			// IRQ 64-bit EL0
 	ventry	fiq_invalid_el0_64			// FIQ 64-bit EL0
-	ventry	error_invalid_el0_64			// Error 64-bit EL0
+	ventry	error_invalid_el0_64		// Error 64-bit EL0
 
 	ventry	sync_invalid_el0_32			// Synchronous 32-bit EL0
 	ventry	irq_invalid_el0_32			// IRQ 32-bit EL0
@@ -29,7 +29,6 @@ el1_irq:
     SAVE_REGISTERS
     bl handle_irq
     RESTORE_REGISTERS
-
 
 sync_invalid_el1t:
 	handle_invalid_entry  SYNC_INVALID_EL1t

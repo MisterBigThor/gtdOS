@@ -2,13 +2,19 @@
 #include "printf.h"
 #include "peripherals/timer.h"
 #include "gpio.h"
-
-const unsigned int interval = 200000;
+/*
+	For setting a timer interval:
+	The working frequency for the clock is 1MHz
+	1 second -> 	interval 1*1MHz = 1.000.000 
+	0.5 seconds ->  interval 500.000  
+	the interval value range is 2^32 (the register size is 32 bits)
+*/
+const unsigned int interval = 500000;
 unsigned int curVal = 0;
 int l = 0;
-
+extern int viewClock;
 void timer_init ( void ){
-	printf("[GreenTreeOS] Timer init:\r\n");
+	printf("[GreenTreeOS] Timer interval @%d\r\n", interval);
 	curVal = get32(TIMER_CLO);
 	curVal += interval;
 	put32(TIMER_C1, curVal);
@@ -18,7 +24,7 @@ void handle_timer_irq( void ) {
 	curVal += interval;
 	put32(TIMER_C1, curVal);
 	put32(TIMER_CS, TIMER_CS_M1);
-	printf("Timer interrupt received\n\r");
+	if(viewClock) printf("Timer interrupt \r\n");
 	if(l == 0){
 		setPin(17);
 		l = 1;
