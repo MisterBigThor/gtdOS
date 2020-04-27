@@ -2,12 +2,12 @@
 #define	_P_BASE_H
 
 //BCM 2835 ARM peripherals 1.2.2:
-//[...] thus aperipheral advertised here at bus @ 0x7Ennnnnn 
+//[...] thus a peripheral advertised here at bus @ 0x7Ennnnnn 
 //is in physical @ 0x3Fnnnnnn
 #define PBASE           0x3F000000
 #define PEND            0x3FFFFFFF
 
-#define PERIPHERAL_BASE 0x40000000
+#define LOCAL_PERIPHERALS_BASE 0x40000000
 
 
 /*
