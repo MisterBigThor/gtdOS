@@ -51,14 +51,14 @@ In the following sections I go further with the diferent components to complete 
 
 # Stages of development
 
-## [UART and GPIO](/01_UART/uart.md)
+### [UART and GPIO](/01_UART/uart.md)
 
-## [Multicore](/02_MULTICORE/multicore.md)
+### [Multicore](/02_MULTICORE/multicore.md)
 
-## [Entry the OS](/03_ENTRY/entry.md)
+### [Entry the OS](/03_ENTRY/entry.md)
 
 For setting up the periphericals of the Raspi, I have read the documentation for the [BCM 2835](/documentation/BCM2835-ARM-Peripherals.pdf), the model of my raspberry.
 ...
 
 For the GPIO I wrote a simple library, according to the reference BCM manual, to manage the functionality.
-## SCHEDULING
+#### [SCHEDULING](/04_SCHED/sched.md)
