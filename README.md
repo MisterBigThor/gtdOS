@@ -41,7 +41,7 @@ In my particular case, I'm working with the Raspberry Pi 3 Model B (rev. 1.2). I
 * The peripherals are mapped in memory.
 
 With this information, we can work with the assembler and C to boot a hello world. In the following sections I go further with the diferent components to complete a OS.
-# Develop Stages
+# Stages of development
 
 ## [UART and GPIO](/01_UART/uart.md)
 
