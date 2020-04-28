@@ -62,3 +62,13 @@ For setting up the periphericals of the Raspi, I have read the documentation for
 
 For the GPIO I wrote a simple library, according to the reference BCM manual, to manage the functionality.
 #### [SCHEDULING](/04_SCHED/sched.md)
+
+
+# bibliography and reference
+Some code is from the following repositories:
+
+* [Matyukevich repo](https://github.com/s-matyukevich/raspberry-pi-os) there is a design for a Raspberry pi general porpuse OS.
+
+* [bztsrc repo](https://github.com/bztsrc/raspi3-tutorial) contains some OS concepts.
+
+In the other hand, the round robin scheduling implementation is from [ZeOS-SO2](https://github.com/MisterBigThor/so2FIB), a OS designed and developed for a subject int UPC-Facultat Informatica de Barcelona.
