@@ -45,7 +45,7 @@ In my particular case, I'm working with the Raspberry Pi 3 Model B (rev. 1.2). I
 
 Inside this file there is the code of the OS to be executed. With this information, we can work with the assembler and C to boot a hello world. 
 
-The peripherals/devices included in the board are mapped in the memory following the reference of the ARM peripherals manual[ARM peripheral manual](documentation/BCM2835-ARM-Peripherals.pdf).
+The peripherals/devices included in the board are mapped in the memory following the reference of the ARM peripherals manual [ARM peripheral manual](documentation/BCM2835-ARM-Peripherals.pdf).
 
 In the following sections I go further with the diferent components to complete an OS interface.
 
