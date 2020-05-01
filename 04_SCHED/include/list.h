@@ -98,6 +98,7 @@ int list_is_last(const struct list_head *list,
  */
 int list_empty(const struct list_head *head);
 
+
 /**
  * list_entry - get the struct for this entry
  * @ptr:	the &struct list_head pointer.

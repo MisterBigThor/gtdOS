@@ -1,7 +1,7 @@
 #include "mm.h"
-#include "sched.h"
-#include "arm/entry.h"
 
+#include "arm/entry.h"
+/*
 int copy_process(unsigned long fn, unsigned long arg)
 {
 	preempt_disable();
@@ -24,3 +24,4 @@ int copy_process(unsigned long fn, unsigned long arg)
 	preempt_enable();
 	return 0;
 }
+*/

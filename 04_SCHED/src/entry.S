@@ -29,6 +29,7 @@ el1_irq:
     SAVE_REGISTERS
     bl handle_irq
     RESTORE_REGISTERS
+	eret
 
 sync_invalid_el1t:
 	handle_invalid_entry  SYNC_INVALID_EL1t
@@ -81,6 +82,5 @@ err_hang:
 
 .globl ret_from_fork
 ret_from_fork:
-	bl schedule_tail
 	mov x0, x20
 	blr x19

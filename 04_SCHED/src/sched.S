@@ -1,4 +1,4 @@
-#include "sched.h"
+#define THREAD_CPU_CONTEXT  0
 
 .globl cpu_switch_to
 cpu_switch_to:

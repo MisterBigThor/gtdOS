@@ -3,6 +3,7 @@
 #include "peripherals/gpio.h"
 #include "uart.h"
 #include "gpio.h"
+#include "printf.h"
 
 void uart_init (void){
 
@@ -21,6 +22,7 @@ void uart_init (void){
 	put32(UARTLCR_LCRH,0x60);				//Enable 8 bit mode
 
 	put32(UART_CR,0x301);					// enable UART, RX and TX
+	init_printf(0, putc);
 }
 
 void putc(void* p, char c){
@@ -49,7 +51,7 @@ void uart_send_string_nl(char *str){
 	uart_send_string(str);
 	uart_send_string("\r\n");
 }
-//Add:
+
 char* uart_read_string(void){
 	int n = 0;
 	while(n < BUFFERSIZE-1){

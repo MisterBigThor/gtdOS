@@ -19,4 +19,11 @@
 #define SYSTEM_TIMER_IRQ_2	(1 << 2)
 #define SYSTEM_TIMER_IRQ_3	(1 << 3)
 
+
+#define TIMER_INT_CTRL_0    (0x40000040)
+#define INT_SOURCE_0        (LPBASE+0x60)
+
+#define TIMER_INT_CTRL_0_VALUE  (1 << 1)
+#define GENERIC_TIMER_INTERRUPT (1 << 1)
+
 #endif

@@ -7,7 +7,7 @@
 #define PBASE           0x3F000000
 #define PEND            0x3FFFFFFF
 
-#define PERIPHERAL_BASE 0x40000000
+#define LPBASE 0x40000000
 
 
 /*

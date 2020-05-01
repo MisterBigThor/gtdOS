@@ -11,7 +11,7 @@ typedef unsigned int tid;
 
 enum state {ST_RUN, ST_READY, ST_BLOCKED, ST_UNUSED};
 
-typedef struct cpu_context {
+struct cpu_context {
 	unsigned long x19;
 	unsigned long x20;
 	unsigned long x21;
@@ -34,7 +34,7 @@ typedef struct task_info{
 }task_info;
 
 typedef struct task{
-    cpu_context myContext;
+    struct cpu_context myContext;
 	tid tid;                	//Task IDentifier
     task_info myInfo;
     int quantumLeft;            //quantum left
@@ -48,11 +48,6 @@ typedef struct task{
 Return the task identifier for a certain task.
 */
 tid getTid(task* t);
-
-/*
-Returns the context for a task t
-*/
-cpu_context getContext(task* t);
 
 /*
 Returns the stadistics for a task t

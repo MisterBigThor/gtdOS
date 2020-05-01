@@ -8,46 +8,44 @@
 #include "string.h"
 #include "kernel.h"
 #include "fork.h"
-#include "sched.h"
+#include "taskScheduling.h"
+
+#include "mode.h"
 
 void process(char *array){
 	while(1){
 		for(int i = 0; i<5; ++i)
-		uart_send(array[i]);
-		delay(100000);
+		printf("%c", array[i]);
+		delay(900000);
 	}
 }
+int version= 50;
 
 void kernel_main(void){
 	
 	uart_init();
-	init_printf(0, putc);
-	
-	printf("[GreenTreeOS] Hello, world with prinft\r\n");
+	printf("[GreenTreeOS] UART Comunication [UP]\r\n");
+	printf("[GreenTreeOS] Version %u\r\n", version);
 	printf("[GreenTreeOS] Exception level: %d Expect 1\r\n", get_el());
 	
 	irq_vector_init();
+
+	init_scheduling();
+
+	init_tasks((unsigned long) process, (unsigned long) "<<>>");
+	init_tasks((unsigned long) process, (unsigned long) "****");
+	init_tasks((unsigned long) process, (unsigned long) "++++");
+
+	#if DBG
+	generic_timer_init();
+	#else
 	timer_init();
+	printf("[GreenTreeOS] Timer [UP]\r\n");
+	#endif
 	enable_interrupt_controller();
 	enable_irq();
 	printf("[GreenTreeOS] Timer interrupts [UP]\r\n");	
-	int res = copy_process((unsigned long)&process, (unsigned long)"12345");
-    if (res != 0) {
-        printf("error while starting process 1");
-        return;
-    }
-    res = copy_process((unsigned long)&process, (unsigned long)"abcde");
-    if (res != 0) {
-        printf("error while starting process 2");
-        return;
-    }
-
-    while (1){
-        schedule();
-    }
 	
 	uart_send_string_nl("[GreenTreeOS]Entering the main loop");
-	while (1) {
-		schedule();	
-	}
+	
 }

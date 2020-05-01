@@ -1,6 +1,6 @@
 #include "arm/sysregs.h"
 #include "mm.h"
-
+#include "mode.h"
 .section ".text.boot"
 
 .globl _start
@@ -12,7 +12,23 @@ _start:
 
 proc_hang: 
 	b 	proc_hang
+#if DBG
+master:
+    ldr	x0, =SCTLR_VALUE_MMU_DISABLED
+    msr	sctlr_el1, x0		
 
+    ldr	x0, =HCR_VALUE
+    msr	hcr_el2, x0
+
+    ldr	x0, =SPSR_VALUE
+    msr	spsr_el2, x0
+
+    adr	x0, el1_entry		
+    msr	elr_el2, x0
+
+    eret
+		
+#else
 master:
 	ldr	x0, =SCTLR_VALUE_MMU_DISABLED
 	msr	sctlr_el1, x0		
@@ -30,6 +46,9 @@ master:
 	msr	elr_el3, x0
 
 	eret	
+#endif
+
+
 el1_entry:
 	adr	x0, bss_begin
 	adr	x1, bss_end
