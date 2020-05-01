@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "list.h": "c",
+        "errno.h": "c",
+        "utils.h": "c",
+        "printf.h": "c",
+        "timer.h": "c",
+        "gpio.h": "c",
+        "sched.h": "c",
+        "*.s": "cpp"
+    }
+}
