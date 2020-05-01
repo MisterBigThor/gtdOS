@@ -3,6 +3,7 @@
 #include "peripherals/timer.h"
 #include "gpio.h"
 #include "sched.h"
+#include "timer.h"
 
 /*
 	For setting a timer interval:
@@ -15,6 +16,7 @@ const unsigned int interval = 500000;
 unsigned int curVal = 0;
 int l = 0;
 extern int viewClock;
+
 void timer_init ( void ){
 	printf("[GreenTreeOS] Timer interval @%d\r\n", interval);
 	curVal = get32(TIMER_CLO);
@@ -27,4 +29,8 @@ void handle_timer_irq( void ) {
 	put32(TIMER_C1, curVal);
 	put32(TIMER_CS, TIMER_CS_M1);
 	timer_tick();
+}
+
+int get_ticks(void){
+	return curVal;
 }

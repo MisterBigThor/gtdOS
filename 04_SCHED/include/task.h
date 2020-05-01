@@ -5,9 +5,11 @@
 #include "errno.h"
 #include "list.h"
 
+#define THREAD_CPU_CONTEXT 0
+
 typedef unsigned int tid;
 
-enum state { ST_RUN, ST_READY, ST_BLOCKED };
+enum state {ST_RUN, ST_READY, ST_BLOCKED, ST_UNUSED};
 
 typedef struct cpu_context {
 	unsigned long x19;
@@ -27,13 +29,13 @@ typedef struct cpu_context {
 
 typedef struct task_info{
     int startingQuantum;
-    int timeElapsed;
+    int ticksElapsed;
 	int transitions;
 }task_info;
 
 typedef struct task{
-    tid tid;                	//Task IDentifier
-	cpu_context myContext;
+    cpu_context myContext;
+	tid tid;                	//Task IDentifier
     task_info myInfo;
     int quantumLeft;            //quantum left
     bool preemption_enable;
