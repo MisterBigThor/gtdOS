@@ -1,1 +1,1 @@
-#define DBG 0
+#define DBG 1

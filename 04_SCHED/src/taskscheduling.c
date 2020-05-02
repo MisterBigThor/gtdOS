@@ -12,8 +12,8 @@ void idle_task_init(void){
     task *t = (task *) get_free_page();
     t->tid = -1;
     t->preemption_enable = true;
-    t->myContext.pc = (unsigned long) idle_task;
-    t->myContext.sp = (unsigned long)t + THREAD_SIZE;
+    t->myContext.pc = (unsigned long)(void *) idle_task;
+    t->myContext.sp = (unsigned long)(void *)t + THREAD_SIZE;
     t->quantumLeft = DEFAULT_QUANTUM;
     stats_init(&(t->myInfo));
     idletask = t;
@@ -71,15 +71,15 @@ void init_scheduling(void){
     current->preemption_enable=true;
     quantumLeft = 0;
 }
-sys_response init_task(unsigned long fn, unsigned long data){
+sys_response init_task(void * fn, void * data){
     task *t = (task *) get_free_page();
     t->tid = ++nTasks;
-    t->myContext.pc = (unsigned long) ret_from_fork;
+    t->myContext.pc = (unsigned long)ret_from_fork;
     
-	t->myContext.x19 = fn;
-	t->myContext.x20 = data;
+	t->myContext.x19 = (unsigned long)fn;
+	t->myContext.x20 = (unsigned long)data;
 
-    t->myContext.sp = (unsigned long) t + THREAD_SIZE;
+    t->myContext.sp =  (unsigned long)t + THREAD_SIZE;
     t->quantumLeft = DEFAULT_QUANTUM;
     t->state = ST_READY;
     list_add(&(t->anchor),&readyQueue);
@@ -87,16 +87,15 @@ sys_response init_task(unsigned long fn, unsigned long data){
     return OK;
 }
 void timerNotify(void){
-    if(!current->preemption_enable) return;
     update_sched_data_rr();
     if(needs_sched_rr()) {
-        setPreemption(current, false);
+        
         printf("\r\n[RoundRobin]: Searching a new thread to exectue\r\n");
         task* next = sched_next_rr();
         printf("\r\n[RoundRobin]: changing to PID: %d\r\n", next->tid);
         quantumLeft = DEFAULT_QUANTUM;
         task_switch(next);
-        setPreemption(current, true);
+        
     }
     return;
 }

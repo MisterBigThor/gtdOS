@@ -16,7 +16,7 @@ void process(char *array){
 	while(1){
 		for(int i = 0; i<5; ++i)
 		printf("%c", array[i]);
-		delay(900000);
+		delay(90000);
 	}
 }
 int version= 50;
@@ -32,9 +32,9 @@ void kernel_main(void){
 
 	init_scheduling();
 
-	init_task((unsigned long) process, (unsigned long) "<<>>");
-	init_task((unsigned long) process, (unsigned long) "****");
-	init_task((unsigned long) process, (unsigned long) "++++");
+	init_task( process,  "<<>>");
+	init_task( process,  "****");
+	init_task( process,  "++++");
 
 	#if DBG
 	generic_timer_init();

@@ -8,7 +8,7 @@
 #include "errno.h"
 
 #define KERNEL_STACK_SIZE   1024
-#define DEFAULT_QUANTUM     15
+#define DEFAULT_QUANTUM     5
 #define THREAD_SIZE			4096
 
 
@@ -26,7 +26,7 @@ int nTasks;
 int quantumLeft;
 
 //TASK MANAGMENT:
-sys_response init_task(unsigned long fn, unsigned long data); //defines a new task, in the ready queue
+sys_response init_task(void * fn, void * data); //defines a new task, in the ready queue
 
 //IDLE TASK:
 void idle_task(void);
