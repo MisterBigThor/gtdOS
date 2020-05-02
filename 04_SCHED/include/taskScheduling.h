@@ -26,7 +26,7 @@ int nTasks;
 int quantumLeft;
 
 //TASK MANAGMENT:
-sys_response init_tasks(unsigned long fn, unsigned long data); //defines a new task, in the ready queue
+sys_response init_task(unsigned long fn, unsigned long data); //defines a new task, in the ready queue
 
 //IDLE TASK:
 void idle_task(void);

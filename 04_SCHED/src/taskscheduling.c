@@ -71,7 +71,7 @@ void init_scheduling(void){
     current->preemption_enable=true;
     quantumLeft = 0;
 }
-sys_response init_tasks(unsigned long fn, unsigned long data){
+sys_response init_task(unsigned long fn, unsigned long data){
     task *t = (task *) get_free_page();
     t->tid = ++nTasks;
     t->myContext.pc = (unsigned long) ret_from_fork;

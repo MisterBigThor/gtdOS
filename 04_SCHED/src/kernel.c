@@ -32,9 +32,9 @@ void kernel_main(void){
 
 	init_scheduling();
 
-	init_tasks((unsigned long) process, (unsigned long) "<<>>");
-	init_tasks((unsigned long) process, (unsigned long) "****");
-	init_tasks((unsigned long) process, (unsigned long) "++++");
+	init_task((unsigned long) process, (unsigned long) "<<>>");
+	init_task((unsigned long) process, (unsigned long) "****");
+	init_task((unsigned long) process, (unsigned long) "++++");
 
 	#if DBG
 	generic_timer_init();
