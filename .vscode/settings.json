@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "entry.h": "c"
+        "entry.h": "c",
+        "task.h": "c"
     },
     "python.pythonPath": "C:\\Users\\victor\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
     "C_Cpp.errorSquiggles": "Disabled"
