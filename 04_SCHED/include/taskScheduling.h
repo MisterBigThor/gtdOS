@@ -34,7 +34,6 @@ void idle_task_init(void);
 
 //ROUND ROBIN API
 task* sched_next_rr(void);
-void update_process_state_rr(task *t, list *dest);
 bool needs_sched_rr(void);
 void update_sched_data_rr(void);
 

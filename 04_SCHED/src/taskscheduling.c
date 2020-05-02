@@ -45,18 +45,6 @@ bool needs_sched_rr(){
 	else return false;   //quantum <= 0 & not empty ready queue
 }
 
-void update_process_state_rr(task *t, list *dest){
-    if(current == 0) return;
-	if(t->state != ST_RUN) list_del(&t->anchor);
-	if(dest == (void *)0) t->state = ST_RUN;
-	else{
-		list_add_tail(&(t->anchor), dest);
-		if(dest == &readyQueue) t->state = ST_READY;
-		else t->state=ST_BLOCKED;
-	}
-	
-}
-
 void update_sched_data_rr(){
 	if(quantumLeft > 0) quantumLeft--;
     current->quantumLeft = quantumLeft;
