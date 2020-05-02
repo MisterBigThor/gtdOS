@@ -65,3 +65,16 @@ void clrPin(int pin){
     value |= (1 << pinField);
     put32(r, value);
 }
+level levelPin(int pin){
+    unsigned int value;
+    if((pin >= 0) & (pin <= 31)) {
+        value = get32(GPLEV0);
+    }
+    else if((pin >= 32) & (pin <= 53)) {
+        value = get32(GPLEV1);
+    }
+    int pinField = pin%32;
+    value = value<<pinField;
+    if(value) return LVL_HIGH;
+    else return LVL_LOW;
+}
