@@ -13,6 +13,7 @@ VICTOR CORREAL RAMOS
 #define FUNCT1  5 
 #define FUNCT0  4 
 
+
 /*
 Defines the functionality for a GPIO pin
 */
@@ -27,3 +28,7 @@ void setPin(int pin);
 If the pin functionality is OUTPUT, a '0' logic is set
 */
 void clrPin(int pin);
+
+enum level {LVL_HIGH, LVL_LOW};
+
+level levelPin(int pin);
